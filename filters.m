@@ -1,0 +1,26 @@
+clc;
+clear all;
+close all;
+fp=input('pass edge band frequency=');
+fs=input('stop edge band frequency=');
+Fs=input('sampling frequency=');
+ap=input('pass edge band attenuation=');
+as=input('stop edge band attenuation=');
+wp=2*pi*fp;
+ws=2*pi*fs;
+[n,wn]=buttord(wp,ws,ap,as,'s');
+[num,den]=butter(n,wn,'low','s');
+disp('order the filter is');
+disp(n);
+printsys(num,den);
+figure(1);
+subplot(2,2,2);
+freqs(num,den);
+title('analog butterworth filter');
+[b,a]=bilinear(num,den,1);
+
+print sys(b,a,'z');
+figure(2);
+subplot(2,2,2);
+freqz(b,a,512,Fs);
+title('digital butterworth filter');

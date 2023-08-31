@@ -1,0 +1,12 @@
+clc;
+clear all;
+close all;
+A=1;
+f=10;
+t=0:0.01:1;
+y=A*cos(2*pi*f*t);
+subplot(2,2,1);
+plot(t,y);
+xlabel('time in sec');
+ylabel('x(t)');
+title('continous time signal x(t)');

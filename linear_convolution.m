@@ -1,0 +1,12 @@
+clc;
+clear all;
+close all;
+x=input('enter the first sequence=');
+h=input('enter the second sequence=');
+subplot(3,1,1);
+stem(x);
+subplot(3,1,2);
+stem(h);
+lin_conv=conv(x,h);
+subplot(3,1,3);
+stem(lin_conv);
